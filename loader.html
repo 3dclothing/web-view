@@ -177,14 +177,14 @@ btn.addEventListener('click',function(){
 
 
 
-        // var fbx_loader = new THREE.FBXLoader(manager);
+        var fbx_loader = new THREE.FBXLoader(manager);
 
         // fbx静态模型
-        // fbx_loader.load('./models/miku/miku.fbx', function(object){
-        //     object.scale.multiplyScalar(.1);
+        fbx_loader.load('./models/miku/miku.fbx', function(object){
+            object.scale.multiplyScalar(.1);
 
-        //     scene.add(object);
-        // }, onProgress, onError);
+            scene.add(object);
+        }, onProgress, onError);
 
         // fbx动画
         /*fbx_loader.load('./models/gf/run.fbx', function(object){
@@ -245,24 +245,24 @@ btn.addEventListener('click',function(){
         obj_loader.setPath('./models/mooncake/');
 
         // obj静态模型一
-        var tga_loader = new THREE.TGALoader();
-        var material = new THREE.MeshPhongMaterial({
-            map: tga_loader.load('./models/mooncake/SYLT_Business_Wom-13_diffuse.tga'),
+        // var tga_loader = new THREE.TGALoader();
+        // var material = new THREE.MeshPhongMaterial({
+        //     map: tga_loader.load('./models/mooncake/SYLT_Business_Wom-13_diffuse.tga'),
             // normalMap: tga_loader.load('./models/mooncake/Sofa_OS_0727_01___Default_Normal.tga'),
             // specularMap: tga_loader.load('./models/mooncake/Sofa_OS_0727_01___Default_S.tga'),
             // bumpMap: tga_loader.load('./models/mooncake/Sofa_OS_0727_01___Default_Bump.tga')
-        });
+        // });
 
-        obj_loader.load('mooncake.obj', function(group){
+        // obj_loader.load('mooncake.obj', function(group){
 
-            var geometry = group.children[0].geometry;
-            geometry.attributes.uv2 = geometry.attributes.uv;
-            geometry.center();
+        //     var geometry = group.children[0].geometry;
+        //     geometry.attributes.uv2 = geometry.attributes.uv;
+        //     geometry.center();
 
-            var mesh = new THREE.Mesh(geometry, material);
-            mesh.scale.multiplyScalar(.1);
-            scene.add(mesh);
-        }, onProgress, onError);
+        //     var mesh = new THREE.Mesh(geometry, material);
+        //     mesh.scale.multiplyScalar(.1);
+        //     scene.add(mesh);
+        // }, onProgress, onError);
 
         // obj静态模型二
         // THREE.Loader.Handlers.add(/\.tga$/i, new THREE.TGALoader());
