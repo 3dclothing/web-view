@@ -36,11 +36,16 @@
     
 </div>
     <script>
-   
 var btn = document.getElementById("btn");
+
+        console.log('32323')
+    console.log('-->',window.location.href)
+    if(window.location.href.includes('10000')){
+        btn.innerHTML = 'HHHHHH';
+    }
 btn.addEventListener('click',function(){
-   
-    wx.miniProgram.navigateTo({url: '/page/test'})
+    wx.miniProgram.postMessage({ data: 'foo' })
+    wx.miniProgram.navigateTo({url: '/page/test?id=111'})
 
 		},false) 
     </script>
@@ -111,7 +116,7 @@ btn.addEventListener('click',function(){
                 console.log(Math.round(percentComplete, 2) + '% downloaded');
             }
         };
-
+ 
         var onError = function(xhr){
             console.error(xhr);
         };
